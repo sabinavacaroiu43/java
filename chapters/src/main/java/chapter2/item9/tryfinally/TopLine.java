@@ -4,18 +4,26 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class TopLine {
+public class TopLine
+{
     // try-finally - No the best way to close resources! (page 34)
-    static String firstLineOfFile(String path) throws IOException {
+    static String firstLineOfFile(String path)
+        throws IOException
+    {
         BufferedReader br = new BufferedReader(new FileReader(path));
-        try {
+        try
+        {
             return br.readLine();
-        } finally {
+        }
+        finally
+        {
             br.close();
         }
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args)
+        throws IOException
+    {
         String path = args[0];
         System.out.println(firstLineOfFile(path));
     }

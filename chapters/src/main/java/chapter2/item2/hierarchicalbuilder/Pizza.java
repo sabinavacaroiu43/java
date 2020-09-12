@@ -4,19 +4,24 @@ import java.util.*;
 
 // Builder pattern for class hierarchies (Page 14)
 
-public abstract class Pizza {
+public abstract class Pizza
+{
     final Set<Topping> toppings;
 
-    Pizza(Builder<?> builder) {
+    Pizza(Builder<?> builder)
+    {
         toppings = builder.toppings.clone(); // See Item 50
     }
 
-    public enum Topping {HAM, MUSHROOM, ONION, PEPPER, SAUSAGE}
+    public enum Topping
+    {HAM, MUSHROOM, ONION, PEPPER, SAUSAGE}
 
-    abstract static class Builder<T extends Builder<T>> {
+    abstract static class Builder<T extends Builder<T>>
+    {
         EnumSet<Topping> toppings = EnumSet.noneOf(Topping.class);
 
-        public T addTopping(Topping topping) {
+        public T addTopping(Topping topping)
+        {
             toppings.add(Objects.requireNonNull(topping));
             return self();
         }
